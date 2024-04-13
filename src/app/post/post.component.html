@@ -1,0 +1,23 @@
+<div class="container">
+  <form class="form card p-3" [formGroup]="userForm"(ngSubmit)="onSubmit()"> 
+    <label for="id">ID:</label>
+    <input class="form-control" type="text" id="id" formControlName="id" required />
+  
+    <label for="name">Name:<sup class="text-danger"><b>*</b></sup>   </label>
+    <input class="form-control" type="text" id="name" formControlName="name" required />
+    @if (userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)) {
+      <p class="text-danger"><small>Must Enter Your Full Name !....</small></p>
+    }
+  
+    <label for="mobile">Mobile:</label>
+    <input class="form-control" type="text" id="mobile" formControlName="mobile"   minlength="10" required />
+  
+    <label for="email">Email:</label>
+    <input class="form-control" type="text" id="email" formControlName="email" required />
+  
+    <label for="message">Message:</label>
+    <textarea class="form-control" id="message" formControlName="message" required></textarea>
+    <br>
+    <button  class="btn btn-success" type="submit">Submit</button>
+  </form>   
+</div>
